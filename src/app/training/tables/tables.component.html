@@ -37,7 +37,17 @@
           <div class="card-body">
             <h5 class="card-title mb-0">List of training</h5>
           </div>
-          <table class="table" *ngIf="trainings.length !== 0">
+
+          <div class="row mx-2">
+            <div class="col-4">
+              <button class="btn btn-primary" (click)="onOpenCreateUpdateTraining(null)">
+                Create a new training
+              </button>
+            </div>
+          </div>
+
+
+          <table class="table">
             <thead>
             <tr>
               <th scope="col">#</th>
@@ -49,15 +59,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let t of trainings; index as i">
+            <tr *ngFor="let t of allTrainings$ | async; index as i">
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ t.name }}</td>
               <td>{{ t.description }}</td>
               <td>{{ t.tarif }}</td>
               <td>{{ t.date }}</td>
               <td>
-                <button (click)="navigateToDetail(t)" class="btn btn-warning">
+                <button (click)="navigateToDetail(t)" class="btn btn-warning ">
                   voir plus
+                </button>
+
+                <button (click)="onOpenCreateUpdateTraining(t)" class="btn btn-primary mx-3">
+                  Modifier
+                </button>
+
+                <button (click)="onDelete(t)" class="btn btn-danger">
+                  Supprimer
                 </button>
               </td>
 

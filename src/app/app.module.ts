@@ -10,8 +10,9 @@ import {registerLocaleData} from "@angular/common";
 import localeFr from '@angular/common/locales/fr';
 import { ChartsComponent } from './charts/charts.component';
 import { ErrorComponent } from './error/error.component';
-import { TablesComponent } from './tables/tables.component';
-import { DetailTrainingComponent } from './detail-training/detail-training.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+
 registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
@@ -21,12 +22,13 @@ registerLocaleData(localeFr, 'fr');
     SidebarComponent,
     ChartsComponent,
     ErrorComponent,
-    TablesComponent,
-    DetailTrainingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

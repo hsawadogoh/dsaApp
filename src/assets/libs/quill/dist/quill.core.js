@@ -6900,7 +6900,7 @@
                 var delta = new _quillDelta2.default()
                   .retain(range.index)
                   .delete(range.length)
-                  .insert("\t");
+                    .insert("\t");
                 this.quill.updateContents(delta, _quill2.default.sources.USER);
                 this.quill.history.cutoff();
                 this.quill.setSelection(
@@ -7014,7 +7014,7 @@
                 var delta = new _quillDelta2.default()
                   .retain(range.index - offset)
                   .delete(length + 1)
-                  .retain(line.length() - 2 - offset)
+                    .retain(line.length() - 2 - offset)
                   .retain(1, { list: value });
                 this.quill.updateContents(delta, _quill2.default.sources.USER);
                 this.quill.history.cutoff();
